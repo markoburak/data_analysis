@@ -19,7 +19,7 @@ def state(df, name):
 def state_group(df):
     state = df.groupby('zvit_date').sum()
     return state
-
+temp = pd.dataframe
 def plot_analysis(state1, state2, column):
     raw1 = state(df, state1)
     raw2 = state(df, state2)
@@ -32,7 +32,9 @@ def plot_analysis(state1, state2, column):
                  groupby(['zvit_date']).sum().cumsum().rename(columns={'new_susp': 'hospitalized'})[
                  'hospitalized']],
             axis=1)
+    state1_df['test'] = state1
 
+    print(state1_df)
     state2_df = pd.concat(
         [start2[['new_susp', 'new_confirm', 'new_death', 'new_recover']].cumsum(),
          start2['active_confirm'], raw2.loc[raw2['is_required_hospitalization'] == 'Так'].

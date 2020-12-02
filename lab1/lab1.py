@@ -72,7 +72,7 @@ def parser():
 
 
 df2 = parser()
-
+print(df2)
 graphs(plt, df2, pd)
 
 
